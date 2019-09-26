@@ -7,20 +7,29 @@ import org.springframework.context.annotation.Configuration;
 public class appconfigure {
 
     @Bean
-    public actor getactor()
+    public actor getactor1()
     {
-        actor actor = new actor();
-        actor.setName("Amitabh Bachchan");
-        actor.setGender("Male");
-        actor.setAge(70);
-        return actor;
+        actor actor1 = new actor("Amitabh Bachchan","Male",70);
+        return actor1;
+    }
+    @Bean
+    public actor getactor2()
+    {
+        actor actor2 = new actor("SRK","Male",55);
+        return actor2;
     }
 
-    @Bean
-    public movie getmovie()
+    @Bean(value = "movie1")
+    public movie getmovie1()
     {
-        movie movie = new movie();
+        movie movie1 = new movie(getactor1());
+        return movie1;
+    }
 
-        return movie;
+    @Bean(value = "movie2")
+    public movie getmovie2()
+    {
+        movie movie2 = new movie(getactor2());
+        return movie2;
     }
 }

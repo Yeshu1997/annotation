@@ -10,7 +10,9 @@ public class main {
         System.out.println("Config file loaded.");
 
 
-        movie movie = factory.getBean(movie.class);
-        System.out.println(movie.getActor());
+        movie movie1 = (movie)factory.getBean("movie1");
+        movie movie2 = (movie)factory.getBean("movie2");
+        System.out.println(movie1.getActor());
+        System.out.println(movie1 == movie2);
     }
 }
